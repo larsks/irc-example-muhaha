@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    GROUPS:
+      - database
+      - webserver
+      - codec
+
+  tasks:
+    - set_fact:
+        hosts: "{{ groups.items()|selectattr('0', 'in', GROUPS)|map(attribute='1')|list }}"
+
+    - debug:
+        msg: "{{ item }}"
+      with_together: "{{ hosts }}"

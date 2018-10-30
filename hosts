@@ -1,0 +1,14 @@
+[database]
+db1
+db2
+db3
+
+[webserver]
+web1
+web2
+web3
+
+[codec]
+codec1
+codec2
+codec3
